@@ -9,7 +9,7 @@ if capture.isOpened() == False:
 fps = 29.97  # 초당 프레임 수
 delay = round(1000/fps)  # 프레임 간 지연 시간
 size = (640, 360)   # 동영상 파일 해상도
-fourcc = cv2.VideoWriter_fourcc(*'DX50')  # 압축 코덱 설정
+fourcc = cv2.VideoWriter_fourcc(*'DIVX')  # 압축 코덱 설정
 
 # 카메라 속성 실행창에 출력
 print("width x height : ", size)
