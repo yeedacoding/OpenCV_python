@@ -1,7 +1,7 @@
 # 영상 처리의 기본적인 작업 -> 영상파일을 처리하기 위해 데이터로 읽어 들이기
 
 import cv2
-
+import matplotlib.pyplot as plt
 # 행렬의 정보를 알기 위해 정보를 출력해주는 함수
 
 
@@ -27,8 +27,24 @@ def print_matInfo(name, image):
 
 
 title1, title2 = 'gray2gray', 'gray2color'
-gray2gray = cv2.imread("images/read_gray.jpg", cv2.IMREAD_GRAYSCALE)
-gray2color = cv2.imread("images/read_gray.jpg", cv2.IMREAD_COLOR)
+
+# cv2의 imread로 읽어온 이미지의 type은 numpy 배열
+gray2gray = cv2.imread("images/read_gray.jpg")
+gray2color = cv2.imread("images/read_color.jpg")
+
+# cv로 불러온 임지 matplotlib으로 띄우기
+plt.imshow(gray2color)
+plt.show()
+# 원본 이미지와 다름
+# openCV랑 matplotlib에서 r,g,b 색을 불러오는 순서가 다르기 때문
+# openCV -> BGR
+# matplotlib -> RGB
+
+# BGR로 순서 바꿔서 matplotlib으로 다시 띄워보기
+mat_img = cv2.cvtColor(gray2color, cv2.COLOR_BGR2RGB)
+plt.imshow(mat_img)
+plt.show()
+
 
 # 예외처리 -> 영상파일 읽기 여부 조사
 if gray2gray is None or gray2color is None:
@@ -44,3 +60,6 @@ print_matInfo(title2, gray2color)
 cv2.imshow(title1, gray2gray)
 cv2.imshow(title2, gray2color)
 cv2.waitKey(0)
+
+
+# matplotlib으로 이미지 띄우기
