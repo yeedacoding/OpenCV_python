@@ -20,9 +20,9 @@ blue = img[100, 100, 0]
 print(blue)
 
 # 이미지 속성
-# 컬러 이미지의 경우 행, 열, 채널 수
+# 컬러 이미지의 경우 (height, width, channel)
 print(img.shape)
-# gray 이미지의 경우 행, 열만 출력 됨
+# gray 이미지의 경우 (height, width)
 print(gray_img.shape)
 
 # 총 픽셀 수
