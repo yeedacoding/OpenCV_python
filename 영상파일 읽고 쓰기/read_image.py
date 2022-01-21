@@ -45,6 +45,17 @@ mat_img = cv2.cvtColor(gray2color, cv2.COLOR_BGR2RGB)
 plt.imshow(mat_img)
 plt.show()
 
+# 컬러 이미지를 gray로 불러오기
+color2gray = cv2.imread('images/read_color.jpg', cv2.IMREAD_GRAYSCALE)
+plt.imshow(color2gray)
+plt.show()
+# 푸르스름한 이미지가 출력되는 이유
+# 단일 채널 이미지를 어느 색상 채널에 매핑해서 출력할지는 matplotlib.pyplot.imshow()의 마음이다. 따라서 이미지를 의도한 대로 출력하기 위해서는 Colormap을 지정해주어야 한다.
+# matplotlib.pyplot.imshow()에는 인자로 cmap이 존재하고, 이를 통해 출력 컬러맵을 설정할 수 있다. 인자를 지정해주지 않는다면 기본으로 rcParams["image.cmap"]이 들어가고, 이는 보통 viridis 컬러맵이 된다.
+# 실제로 인자로 cmap='viridis'를 주면 위에서 출력된 것과 같이 초록색으로 뜬 이미지가 출력되는 걸 볼 수 있다.
+plt.imshow(color2gray, cmap='gray')
+plt.show()
+
 
 # 예외처리 -> 영상파일 읽기 여부 조사
 if gray2gray is None or gray2color is None:
