@@ -29,7 +29,7 @@ cv2.setMouseCallback('my_drawing', draw_rectangle)
 while True:
     cv2.imshow('my_drawing', img)
 
-    if cv2.waitKey(0):
+    if cv2.waitKey(20) & 0xFF == 27:
         break
 
 cv2.destroyAllWindows()
