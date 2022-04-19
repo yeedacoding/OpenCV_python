@@ -54,6 +54,7 @@ contours, hierarchy = cv2.findContours(
     img, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_NONE)
 
 # contours = 검출한 컨투어 좌표
+print(contours)
 print(type(contours))
 print(len(contours))
 # hierarchy = 컨투어 계층 정보
